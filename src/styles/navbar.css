@@ -269,6 +269,10 @@ body:has(#wallpaper-wrapper) #navbar[data-transparent-mode="semifull"][data-enab
 
 
 
+#nav-links {
+    transition: opacity 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* 调整下拉菜单和浮动面板的背景透明度 */
 /* 亮色主题 */
 #wallpaper-wrapper~* .dropdown-content,

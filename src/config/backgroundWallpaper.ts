@@ -42,24 +42,10 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	src: {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
-		desktop: [
-			"assets/images/DesktopWallpaper/d1.avif",
-			"assets/images/DesktopWallpaper/d2.avif",
-			"assets/images/DesktopWallpaper/d3.avif",
-			"assets/images/DesktopWallpaper/d4.avif",
-			"assets/images/DesktopWallpaper/d5.avif",
-			"assets/images/DesktopWallpaper/d6.avif",
-		],
+		desktop: "https://img.ireado.xyz/random?dir=DesktopWallpaper&type=img&form=text",
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
-		mobile: [
-			"assets/images/MobileWallpaper/m1.avif",
-			"assets/images/MobileWallpaper/m2.avif",
-			"assets/images/MobileWallpaper/m3.avif",
-			"assets/images/MobileWallpaper/m4.avif",
-			"assets/images/MobileWallpaper/m5.avif",
-			"assets/images/MobileWallpaper/m6.avif",
-		],
+		mobile: "https://img.ireado.xyz/random?dir=MobileWallpaper&type=img&form=text",
 		// 背景视频播放地址
 		// 支持单个视频路径（字符串）或多个视频循环（数组）
 		// 支持远程视频URL，本地视频请放在 public/assets/videos/ 目录下
@@ -79,7 +65,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否启用主页横幅文字
 			enable: true,
 			// 是否允许用户通过控制面板切换横幅标题显示
-			switchable: true,
+			switchable: false,
 			// 主页横幅主标题
 			title: "Lovely firefly!",
 			// 主页横幅主标题字体大小
@@ -126,7 +112,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				mobile: true,
 			},
 			// 是否允许用户通过控制面板切换水波纹动画
-			switchable: true,
+			switchable: false,
 		},
 		// 渐变过渡效果配置，当水波纹关闭时自动启用，提供壁纸底部到背景色的平滑过渡
 		gradient: {
@@ -139,7 +125,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 渐变高度
 			height: "10%",
 			// 是否允许用户通过控制面板切换渐变过渡
-			switchable: true,
+			switchable: false,
 		},
 		// 壁纸轮播配置，横幅壁纸和全屏壁纸共享，仅在配置多张图片时生效
 		carousel: {
@@ -150,7 +136,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 过渡效果: 'fade' 渐变 | 'zoom' 缩放 | 'slide' 滑动 | 'kenburns' 旋转木马
 			transitionEffect: "zoom",
 			// 是否允许用户通过控制面板切换壁纸轮播
-			switchable: true,
+			switchable: false,
 		},
 	},
 	// Banner模式特有配置

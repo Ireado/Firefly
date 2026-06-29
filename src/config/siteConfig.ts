@@ -6,13 +6,13 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Firefly",
+	title: "Ireado的博客",
 
 	// 站点副标题
-	subtitle: "Demo site",
+	subtitle: "Ireado",
 
 	// 站点 URL
-	site_url: "https://firefly.cuteleaf.cn",
+	site_url: "https://ireado.xyz",
 
 	// 站点描述
 	description:
@@ -20,9 +20,9 @@ export const siteConfig: SiteConfig = {
 
 	// 站点关键词
 	keywords: [
-		"Firefly",
+		"Ireado",
 		"Fuwari",
-		"Astro",
+		"Astro"	,
 		"ACGN",
 		"博客",
 		"技术博客",
@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
 	// 主题色
 	themeColor: {
 		// 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
-		hue: 165,
+		hue: 305,
 		// 是否对访问者隐藏主题色选择器
 		fixed: false,
 		// 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = {
 	// 页面整体宽度（单位：rem）
 	// 数值越大可以让页面内容区域更宽
 	// 在使用单侧栏边栏时，建议调低一些宽度以获得更好的视觉效果。
-	pageWidth: 100,
+	pageWidth: 80,
 
 	// 网站Card样式配置
 	card: {
@@ -74,13 +74,13 @@ export const siteConfig: SiteConfig = {
 		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
 			type: "image",
-			value: "assets/images/firefly.png",
-			alt: "🍀",
+			value: "assets/images/cat.png",
+			alt: "",
 		},
 		// 导航栏标题
-		title: "Firefly",
+		title: "Ireado",
 		// 全宽导航栏，导航栏是否占满屏幕宽度
-		widthFull: false,
+		widthFull: true,
 		// 导航菜单对齐方式，left：左对齐，center：居中
 		menuAlign: "center",
 		// 导航栏图标和标题是否跟随主题色
@@ -90,7 +90,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2025-01-01",
+	siteStartDate: "2026-05-17",
 
 	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
 	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
@@ -135,7 +135,7 @@ export const siteConfig: SiteConfig = {
 			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
 			masonry: false,
 			// 网格模式卡片最小宽度(px)，浏览器根据容器宽度自动计算列数
-			columnWidth: 320,
+			columnWidth: 320, 
 		},
 	},
 
