@@ -1,6 +1,7 @@
 ---
 title: 不锈星火，同赴星海
 published: 2026-06-19
+pinned: true
 tags: [轻小说, 科幻, 完结]
 category: 创作
 draft: false
