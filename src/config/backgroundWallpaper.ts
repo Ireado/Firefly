@@ -51,7 +51,9 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 支持远程视频URL，本地视频请放在 public/assets/videos/ 目录下
 		// playerUrl: "/assets/videos/firefly.mp4",
 		playerUrl: [
-			"https://www.image2url.com/r2/default/videos/1781765166391-f2ba6648-1597-40e0-9f0a-6768ae39e574.mp4",
+			"https://img.ireado.xyz/file/wallpapershare/1783178716300_xilian.mp4",
+			"https://img.ireado.xyz/file/wallpapershare/1782870148298_b站-林烟不是大佬.mp4",
+			"https://img.ireado.xyz/file/wallpapershare/1782830067751_《原神》角色预告-「哥伦比娅：飞往何方」.mp4",
 		],
 	},
 	// 横幅壁纸和全屏壁纸共享配置

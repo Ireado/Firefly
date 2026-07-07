@@ -9,7 +9,7 @@ export const sponsorConfig: SponsorConfig = {
 
 	// 打赏用途说明
 	usage:
-		"您的打赏将用于服务器维护、内容创作和功能开发，帮助我持续提供优质内容。",
+		"您的赞助将用于火星生态改造、信道建设和新型航天器研发，帮助我们实现火星可持续发展。",
 
 	// 是否显示打赏者列表
 	showSponsorsList: true,
@@ -43,15 +43,15 @@ export const sponsorConfig: SponsorConfig = {
 			name: "ko-fi",
 			icon: "simple-icons:kofi",
 			qrCode: "",
-			link: "https://ko-fi.com/cuteleaf",
-			description: "Buy a Coffee for Firefly",
+			link: "https://ko-fi.com",
+			description: "Buy a Coffee for yourself",
 			enabled: true,
 		},
 		{
 			name: "爱发电",
 			icon: "simple-icons:afdian",
 			qrCode: "",
-			link: "https://ifdian.net/a/cuteleaf",
+			link: "https://ifdian.net",
 			description: "通过 爱发电 进行打赏",
 			enabled: true,
 		},
@@ -61,19 +61,18 @@ export const sponsorConfig: SponsorConfig = {
 	sponsors: [
 		// 示例：已实名打赏者
 		{
-			name: "夏叶",
-			avatar:
-				"https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640",
-			amount: "¥50",
-			date: "2025-10-01",
+			name: "埃隆·马斯克",
+			avatar:"",
+			amount: "火星信用点1000000",
+			date: "2126-12-31",
 		},
 
 		// 示例：匿名打赏者
 		{
-			name: "匿名用户",
+			name: "阎王爷",
 			// avatar: "",
-			amount: "¥20",
-			date: "2025-10-01",
+			amount: "冥币1000000",
+			date: "1145-01-04",
 		},
 	],
 };
