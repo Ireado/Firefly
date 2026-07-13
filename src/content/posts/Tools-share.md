@@ -59,7 +59,7 @@ slug: tools-share-one
 3. [暮光](https://qisuhe.pages.dev/)  
    安卓功能集成工具箱
 
-4. [GKD](https://gkd.li/)
+4. [GKD](https://gkd.li/)  
    自定义屏幕点击应用，可用于跳过安卓机应用开屏广告，至于跳广告的订阅规则组，可b站或其他平台搜索
 
 5. [LocalSend](https://localsend.org/zh-CN)  

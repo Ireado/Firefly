@@ -1,0 +1,211 @@
+<!-- WelcomeToast: 访客首次访问时右下角弹出欢迎卡片，带 IP 地理位置个性化问候，5 秒后自动消失 -->
+
+<script>
+  const VISIT_SESSION_KEY = 'blog_visit_flag';
+  let hasShownToast = false;
+
+  function createWelcomeToast() {
+    const toast = document.createElement('div');
+    toast.id = 'welcome-toast';
+    toast.className = 'fixed bottom-4 right-4 z-50 transition-all duration-500 ease-out translate-x-full opacity-0';
+    toast.innerHTML = `
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-4 flex items-start gap-3 max-w-xs">
+        <span class="text-2xl flex-shrink-0">👋</span>
+        <div class="flex-1 min-w-0">
+          <p id="welcome-greeting" class="text-sm font-medium text-gray-800 dark:text-gray-100">正在加载...</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">欢迎来到我的博客</p>
+        </div>
+        <button
+          onclick="window.closeWelcomeToast?.()"
+          class="flex-shrink-0 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          aria-label="关闭"
+        >&times;</button>
+      </div>
+    `;
+    document.body.appendChild(toast);
+    return toast;
+  }
+
+  function closeWelcomeToast() {
+    const toast = document.getElementById('welcome-toast');
+    if (!toast) return;
+    toast.classList.add('translate-x-full', 'opacity-0');
+    toast.classList.remove('translate-x-0', 'opacity-100');
+    setTimeout(() => {
+      toast.remove();
+      hasShownToast = false;
+    }, 500);
+  }
+
+  async function fetchLocation() {
+    const greeting = document.getElementById('welcome-greeting');
+    if (!greeting) return;
+
+    try {
+      let text = await tryIpipNet();
+      if (text) { greeting.textContent = text; return; }
+      text = await tryPconline();
+      if (text) { greeting.textContent = text; return; }
+      text = await tryIpSb();
+      if (text) { greeting.textContent = text; return; }
+    } catch {}
+
+    greeting.textContent = '朋友，你好👋';
+  }
+
+  // --- ipip.net：国内IP定位最准，返回中文文本 ---
+  async function tryIpipNet() {
+    const ctrl = new AbortController();
+    const id = setTimeout(() => ctrl.abort(), 3000);
+    try {
+      const res = await fetch('https://myip.ipip.net', { signal: ctrl.signal });
+      const text = await res.text();
+      // 格式："当前 IP：x.x.x.x  来自于：中国 河南 郑州  电信"
+      const m = text.match(/来自于[：:]\s*(.+)/);
+      if (!m) return null;
+      const parts = m[1].trim().split(/\s+/);
+      return formatIpipParts(parts);
+    } catch {
+      return null;
+    } finally {
+      clearTimeout(id);
+    }
+  }
+
+  function formatIpipParts(parts) {
+    if (parts.length === 0) return null;
+    const isZhixiashi = ['北京市', '上海市', '天津市', '重庆市'].includes(parts[0]);
+    // 台湾/香港/澳门
+    if (parts[0] === '台湾') {
+      const city = parts[1] && parts[1] !== '台湾' ? parts[1] : '';
+      return `来自台湾${city ? city + '的' : ''}朋友，你好👋`;
+    }
+    if (parts[0] === '香港') return '来自香港的朋友，你好👋';
+    if (parts[0] === '澳门') return '来自澳门的朋友，你好👋';
+    // 海外：只有国家名
+    if (parts[0] !== '中国') return `来自${parts[0]}的朋友，你好👋`;
+    // 大陆
+    if (isZhixiashi) return `来自${parts[0]}的朋友，你好👋`;
+    if (parts.length >= 3) {
+      const prov = parts[1].replace(/省|市$/, '');
+      const city = parts[2].replace(/市$/, '');
+      if (city === prov) return `来自${prov}的朋友，你好👋`;
+      return `来自${prov}${city}的朋友，你好👋`;
+    }
+    if (parts.length >= 2) {
+      const prov = parts[1].replace(/省|市$/, '');
+      return `来自${prov}的朋友，你好👋`;
+    }
+    return '来自中国的朋友，你好👋';
+  }
+
+  // --- pconline：太平洋网络IP库，中文JSON ---
+  async function tryPconline() {
+    const ctrl = new AbortController();
+    const id = setTimeout(() => ctrl.abort(), 3000);
+    try {
+      const res = await fetch('https://whois.pconline.com.cn/ipJson.jsp?ip=&json=true', { signal: ctrl.signal });
+      const data = await res.json();
+      if (!data || data.err) return null;
+      // pro="河南省" city="郑州市"
+      const pro = (data.pro || '').replace(/省|市$/, '').trim();
+      const city = (data.city || '').replace(/市$/, '').trim();
+      // 非中国
+      if (data.isNotChina && data.country) return `来自${data.country}的朋友，你好👋`;
+      // 台湾/香港/澳门
+      if (pro === '台湾') return `来自台湾${city && city !== '台湾' ? city + '的' : ''}朋友，你好👋`;
+      if (pro === '香港' || data.country === '香港') return '来自香港的朋友，你好👋';
+      if (pro === '澳门' || data.country === '澳门') return '来自澳门的朋友，你好👋';
+      if (!pro) return null;
+      const isZhixiashi = ['北京', '上海', '天津', '重庆'].includes(pro);
+      if (isZhixiashi) return `来自${pro}市的朋友，你好👋`;
+      if (city && city !== pro) return `来自${pro}${city}的朋友，你好👋`;
+      return `来自${pro}的朋友，你好👋`;
+    } catch {
+      return null;
+    } finally {
+      clearTimeout(id);
+    }
+  }
+
+  // --- ip.sb：海外IP兜底 ---
+  async function tryIpSb() {
+    const ctrl = new AbortController();
+    const id = setTimeout(() => ctrl.abort(), 3000);
+    try {
+      const res = await fetch('https://api.ip.sb/geoip', { signal: ctrl.signal });
+      const data = await res.json();
+      if (!data) return null;
+      // 海外IP直接返回国家名
+      if (data.country && data.country !== 'China') {
+        const countryMap = {
+          'Japan': '日本', 'Korea': '韩国', 'South Korea': '韩国',
+          'United States': '美国', 'Canada': '加拿大', 'United Kingdom': '英国',
+          'France': '法国', 'Germany': '德国', 'Australia': '澳大利亚',
+          'Singapore': '新加坡', 'Malaysia': '马来西亚', 'Thailand': '泰国',
+          'Vietnam': '越南', 'Russia': '俄罗斯', 'India': '印度', 'Italy': '意大利',
+          'Spain': '西班牙', 'Netherlands': '荷兰', 'Sweden': '瑞典',
+          'Switzerland': '瑞士', 'Brazil': '巴西', 'Indonesia': '印度尼西亚',
+          'Philippines': '菲律宾', 'New Zealand': '新西兰', 'Turkey': '土耳其',
+        };
+        const cn = countryMap[data.country] || data.country;
+        return `来自${cn}的朋友，你好👋`;
+      }
+      // 台湾/香港/澳门
+      if (data.country === 'Taiwan' || data.country_code === 'TW') return '来自台湾的朋友，你好👋';
+      if (data.country === 'Hong Kong' || data.country_code === 'HK') return '来自香港的朋友，你好👋';
+      if (data.country_code === 'MO') return '来自澳门的朋友，你好👋';
+      return null;
+    } catch {
+      return null;
+    } finally {
+      clearTimeout(id);
+    }
+  }
+
+  async function showWelcomeToast() {
+    if (hasShownToast) return;
+    if (sessionStorage.getItem(VISIT_SESSION_KEY)) return;
+    hasShownToast = true;
+    sessionStorage.setItem(VISIT_SESSION_KEY, '1');
+
+    const toast = createWelcomeToast();
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-x-full', 'opacity-0');
+        toast.classList.add('translate-x-0', 'opacity-100');
+      });
+    });
+
+    fetchLocation();
+
+    setTimeout(() => {
+      closeWelcomeToast();
+    }, 5000);
+  }
+
+  function initWelcome() {
+    if (hasShownToast) return;
+    showWelcomeToast();
+  }
+
+  window.closeWelcomeToast = closeWelcomeToast;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWelcome);
+    document.addEventListener('astro:page-load', initWelcome);
+  } else {
+    initWelcome();
+  }
+</script>
+
+<style>
+  @media (max-width: 640px) {
+    #welcome-toast {
+      left: 5%;
+      right: 5%;
+      bottom: 1rem;
+    }
+  }
+</style>

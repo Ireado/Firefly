@@ -4,6 +4,7 @@ import Live2DWidget from "@components/features/Live2DWidget.astro";
 import SpineModel from "@components/features/SpineModel.astro";
 import Footer from "@components/layout/Footer.astro";
 import Navbar from "@components/layout/Navbar.astro";
+import WelcomeToast from "@components/widget/WelcomeToast.astro";
 import SideBar from "@components/layout/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
@@ -851,6 +852,7 @@ const hasMultipleImages =
                 <div id="content-wrapper" class="onload-animation transition-leaving">
                     <slot></slot>
                 </div>
+                <WelcomeToast />
             </main>
             </div>
 

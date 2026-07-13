@@ -24,19 +24,19 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "qq",
 			icon: "fa7-brands:qq",
-			url: "https://qm.qq.com/q/ZGsFa8qX2G",
+			url: "https://im.qq.com/",
+			showName: false,
+		},
+		{
+			name: "biLibili",
+			icon: "fa7-brands:bilibili",
+			url: "https://www.bilibili.com",
 			showName: false,
 		},
 		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: "https://github.com/CuteLeaf",
-			showName: false,
-		},
-		{
-			name: "Email",
-			icon: "fa7-solid:envelope",
-			url: "mailto:xiaye@msn.com",
+			url: "https://github.com",
 			showName: false,
 		},
 		{
