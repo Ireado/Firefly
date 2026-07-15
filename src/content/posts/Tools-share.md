@@ -7,11 +7,11 @@ draft: false
 slug: tools-share-one
 ---
 
-**有些工具开源于github，请自备github账号。这里不分享科学上网工具**  
+**有些工具开源于github，请自备github账号。这里不分享科学上网工具**
 
 ## 电脑工具
 
-> 以下是电脑工具，windows版本优先    
+> 以下是电脑工具，windows版本优先
 
 1. [Steamcommunity 302](https://www.dogfight360.com/blog/18682/)  
    一款免费steam加速器，包括但不限于steam加速，例如还可加速GitHub
@@ -23,7 +23,7 @@ slug: tools-share-one
    一款国产的截图、贴图工具，更符合国人习惯
 
 4. [果核看图](https://pic.ghxi.com/)  
-   看图工具，win自带看图软件启动慢，支持也不友好，这款看图软件速度快，支持各种现代格式，体积小，页面也很美观简洁 
+   看图工具，win自带看图软件启动慢，支持也不友好，这款看图软件速度快，支持各种现代格式，体积小，页面也很美观简洁
 
 5. [Ditto](https://github.com/sabrogden/Ditto/releases)  
    剪切板软件，可保存带格式文本和复制的图片
@@ -41,14 +41,20 @@ slug: tools-share-one
    哔哩哔哩视频解析下载工具，支持 8K 视频、Hi-Res 音频、杜比视界下载、批量解析，可扫码登录，常驻托盘。
 
 10. [Geek Uninstaller](https://geekuninstaller.com/)  
-    强力卸载软件  
+    强力卸载软件
 
 11. [spacedesk](https://www.spacedesk.net/)  
     spacedesk可以将把平板、手机作为副屏连接上win电脑
 
+12. [obsidian](https://obsidian.md/)  
+    一款跨平台的笔记软件，支持markdown，可同步笔记到云盘，如 google drive、dropbox 等。
+
+13. [spacesniffer](https://www.spacesniffer.com.cn/)  
+    磁盘可视化工具，可监控磁盘空间占用情况，包括文件、文件夹、系统文件等。
+
 ## 手机工具
 
-> 安卓版本优先 
+> 安卓版本优先
 
 1. [次元壁纸](https://www.13th.tech/)  
    手机二次元壁纸下载软件，每日免费额度有限，有能力可付费十几块钱解锁完整权益
@@ -67,3 +73,25 @@ slug: tools-share-one
 
 6. [MiXplorer](https://mixplorer.com/#intro)  
    安卓文件管理软件
+
+7. [F-Droid](https://f-droid.org/en/)  
+   安卓开源应用商店，提供免费的、安全的、无广告的应用，支持批量安装和更新。
+   > [!CAUTION] CAUTION  
+   > 只是很可惜可能会被谷歌温水煮青蛙煮掉。详细：[反谷歌2026安卓管控政策抗议](https://keepandroidopen.org/zh-CN/)
+
+## 功能性网站
+
+1. [Convertio](https://convertio.co/zh/)  
+   文件转换器
+
+2. [removebg](https://www.remove.bg/zh/)  
+   抠图工具
+
+3. [Pinterest](https://www.pinterest.com/)  
+   创意分享平台
+
+4. [SomeACG](https://www.someacg.top/)
+   专注分享高清二次元ACG壁纸的网站
+
+5. [小众技术](https://www.xiaozhongjishu.com/?from=itab)  
+   资源集成网站
