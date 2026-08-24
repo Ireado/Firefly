@@ -52,6 +52,9 @@ slug: tools-share-one
 13. [spacesniffer](https://www.spacesniffer.com.cn/)  
     磁盘可视化工具，可监控磁盘空间占用情况，包括文件、文件夹、系统文件等。
 
+14. [Serpent](https://github.com/dolag233/Serpent)
+    数字资产管理软件，面向游戏美术、影视后期、平面/动态图形设计师。
+
 ## 手机工具
 
 > 安卓版本优先
@@ -90,8 +93,22 @@ slug: tools-share-one
 3. [Pinterest](https://www.pinterest.com/)  
    创意分享平台
 
-4. [SomeACG](https://www.someacg.top/)
+4. [SomeACG](https://www.someacg.top/)  
    专注分享高清二次元ACG壁纸的网站
 
 5. [小众技术](https://www.xiaozhongjishu.com/?from=itab)  
    资源集成网站
+
+## API中转站
+
+1. [https://faroapi.com/](https://faroapi.com/)
+
+2. [https://xpeach.codes/](https://xpeach.codes/)
+
+3. [https://api.yoshub.com/](https://api.yoshub.com/)
+
+4. [https://sui-xiang.com/](https://sui-xiang.com/)
+
+5. [https://downstream.jbbtoken.cn/](https://downstream.jbbtoken.cn/)
+
+6. [https://88api.ai/](https://88api.ai/)
